@@ -17,16 +17,45 @@ const C = {
 
 // ─── Calendar ───
 const EVENTS_2026 = [
-  { day: 5, month: 3, island: "food", title: "食事島 #1" },
-  { day: 12, month: 3, island: "dialogue", title: "対話島「夢を語る」" },
-  { day: 19, month: 3, island: "ai", title: "AI島 キックオフ" },
-  { day: 26, month: 3, island: "food", title: "食事島 #2" },
-  { day: 5, month: 4, island: "food", title: "新歓 食事島" },
-  { day: 9, month: 4, island: "ai", title: "AI島「プロンプト術」" },
-  { day: 12, month: 4, island: "dialogue", title: "対話島「好きな本」" },
-  { day: 19, month: 4, island: "food", title: "食事島 #3" },
-  { day: 23, month: 4, island: "ai", title: "AI島「就活×AI」" },
-  { day: 26, month: 4, island: "dialogue", title: "対話島「働くとは」" },
+  // ── 4月 食事島（毎週月曜・木曜 19:00〜）──
+  { day: 6, month: 3, island: "food", title: "食事島 19:00〜", time: "19:00" },
+  { day: 9, month: 3, island: "food", title: "食事島 19:00〜", time: "19:00" },
+  { day: 13, month: 3, island: "food", title: "食事島 19:00〜", time: "19:00" },
+  { day: 16, month: 3, island: "food", title: "食事島 19:00〜", time: "19:00" },
+  { day: 20, month: 3, island: "food", title: "食事島 19:00〜", time: "19:00" },
+  { day: 23, month: 3, island: "food", title: "食事島 19:00〜", time: "19:00" },
+  { day: 27, month: 3, island: "food", title: "食事島 19:00〜", time: "19:00" },
+  { day: 30, month: 3, island: "food", title: "食事島 19:00〜", time: "19:00" },
+  // ── 4月 AI朝活（毎週水曜 8:00〜9:00）──
+  { day: 1, month: 3, island: "ai", title: "AI朝活 8:00〜9:00", time: "8:00" },
+  { day: 8, month: 3, island: "ai", title: "AI朝活 8:00〜9:00", time: "8:00" },
+  { day: 15, month: 3, island: "ai", title: "AI朝活 8:00〜9:00", time: "8:00" },
+  { day: 22, month: 3, island: "ai", title: "AI朝活 8:00〜9:00", time: "8:00" },
+  { day: 29, month: 3, island: "ai", title: "AI朝活 8:00〜9:00", time: "8:00" },
+  // ── 4月 AI島×対話島（特別イベント 16:00〜19:00）──
+  { day: 11, month: 3, island: "ai", title: "AI島×対話島 16:00〜19:00", time: "16:00" },
+  { day: 11, month: 3, island: "dialogue", title: "AI島×対話島 16:00〜19:00", time: "16:00" },
+  { day: 18, month: 3, island: "ai", title: "AI島×対話島 16:00〜19:00", time: "16:00" },
+  { day: 18, month: 3, island: "dialogue", title: "AI島×対話島 16:00〜19:00", time: "16:00" },
+  // ── 5月 食事島（毎週月曜・木曜 19:00〜）──
+  { day: 4, month: 4, island: "food", title: "食事島 19:00〜", time: "19:00" },
+  { day: 7, month: 4, island: "food", title: "食事島 19:00〜", time: "19:00" },
+  { day: 11, month: 4, island: "food", title: "食事島 19:00〜", time: "19:00" },
+  { day: 14, month: 4, island: "food", title: "食事島 19:00〜", time: "19:00" },
+  { day: 18, month: 4, island: "food", title: "食事島 19:00〜", time: "19:00" },
+  { day: 21, month: 4, island: "food", title: "食事島 19:00〜", time: "19:00" },
+  { day: 25, month: 4, island: "food", title: "食事島 19:00〜", time: "19:00" },
+  { day: 28, month: 4, island: "food", title: "食事島 19:00〜", time: "19:00" },
+  // ── 5月 AI朝活（毎週水曜 8:00〜9:00）──
+  { day: 6, month: 4, island: "ai", title: "AI朝活 8:00〜9:00", time: "8:00" },
+  { day: 13, month: 4, island: "ai", title: "AI朝活 8:00〜9:00", time: "8:00" },
+  { day: 20, month: 4, island: "ai", title: "AI朝活 8:00〜9:00", time: "8:00" },
+  { day: 27, month: 4, island: "ai", title: "AI朝活 8:00〜9:00", time: "8:00" },
+  // ── 5月 AI島×対話島（特別イベント 16:00〜19:00）──
+  { day: 16, month: 4, island: "ai", title: "AI島×対話島 16:00〜19:00", time: "16:00" },
+  { day: 16, month: 4, island: "dialogue", title: "AI島×対話島 16:00〜19:00", time: "16:00" },
+  { day: 30, month: 4, island: "ai", title: "AI島×対話島 16:00〜19:00", time: "16:00" },
+  { day: 30, month: 4, island: "dialogue", title: "AI島×対話島 16:00〜19:00", time: "16:00" },
 ];
 
 const ISLAND_COLORS = { food: C.food, ai: C.ai, dialogue: C.dialogue };
@@ -194,7 +223,7 @@ function FoodIslandPage({ onBack }) {
               "🤝 初対面でもOK。テーマ縛りなし、自然な会話を楽しもう",
               "👨‍🍳 OBの手料理やみんなで作る料理会も開催",
               "💰 参加費無料（食材費のみ割り勘）",
-              "📅 月1〜2回、早稲田エリアで開催",
+              "📅 毎週月曜・木曜 19:00〜 早稲田エリアで開催",
             ].map((item, i) => (
               <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                 <span style={{ fontSize: 18, lineHeight: "1.6" }}>{item.slice(0, 2)}</span>
@@ -233,13 +262,14 @@ function FoodIslandPage({ onBack }) {
 }
 
 function AIIslandPage({ onBack }) {
-  const events = [
-    { emoji: "🚀", title: "AI島 キックオフ", date: "4月上旬", desc: "AIで大学生活が変わる！ChatGPT・Claudeの基本から応用まで、一緒に体験しよう。" },
-    { emoji: "✍️", title: "プロンプト術ワークショップ", date: "4月中旬", desc: "レポートの質を爆上げするプロンプトの書き方を実践ハンズオンで学ぶ。" },
-    { emoji: "💼", title: "就活×AIハック", date: "4月下旬", desc: "ES添削・面接対策・企業研究…AIを使った就活の裏技を共有。" },
-    { emoji: "🎨", title: "AIポートフォリオ制作会", date: "5月予定", desc: "AIを使って自分だけのポートフォリオサイトを30分で作る。" },
-    { emoji: "🔍", title: "最新AIツール触ってみよう会", date: "5月予定", desc: "話題の新しいAIツールをみんなで触って感想を共有。月替わりテーマ。" },
-    { emoji: "📊", title: "データ分析入門×AI", date: "6月予定", desc: "Excelすら怖い人向け。AIと一緒にデータを読み解く入門ワークショップ。" },
+  const regularEvents = [
+    { emoji: "☀️", title: "AI朝活", date: "毎週水曜 8:00〜9:00", desc: "朝ごはん食べながらAIで遊ぶ1時間。ChatGPTしか使ってない？Claude、Perplexity、Gemini…AI四天王の使い分けを体感しよう。" },
+  ];
+  const specialEvents = [
+    { emoji: "🔥", title: "AI島×対話島「AI時代に必要な人間のスキルとは？」", date: "4/11（土）16:00〜19:00", desc: "AIが何でもやってくれる時代に、人間が磨くべきスキルは何か？ハンズオン＋ディスカッションの3時間。" },
+    { emoji: "🔥", title: "AI島×対話島「ChatGPTしか使ってないの？」", date: "4/18（土）16:00〜19:00", desc: "AI四天王を実際に触り比べて、使い分けを体感。その後「AIとどう生きる？」を語り合う。" },
+    { emoji: "🔥", title: "AI島×対話島「就活をAIでハックする」", date: "5/16（土）16:00〜19:00", desc: "ES作成・自己分析・面接練習をAIで実践。その後「AI使えば就活楽勝？」を本音で議論。" },
+    { emoji: "🔥", title: "AI島×対話島「AIでレポートの質を爆上げする」", date: "5/30（土）16:00〜19:00", desc: "Perplexityでリサーチ→Claudeで構成→ChatGPTで仕上げ。AIレポート術を体験して語り合う。" },
   ];
 
   return (
@@ -250,11 +280,11 @@ function AIIslandPage({ onBack }) {
           <SectionLabel text="AI島ってこんな島" />
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             {[
-              "🤖 学生生活でAIをどう活用するか、実践的に学び合う場",
-              "🛠️ ハンズオン中心。見るだけじゃなく、触って覚える",
+              "🤖 「ChatGPTしか使ってないの？もったいない！」がスタート地点",
+              "🛠️ 知る・触る・考えるの3本柱。ハンズオンも議論もやる",
+              "☀️ 毎週水曜の朝活でAIに触れる習慣をつくる",
               "👥 一人だと続かないAI学習も、仲間と一緒なら楽しい",
-              "📱 LINEグループで「使ってみた報告」も随時シェア",
-              "📅 月2回開催（ワークショップ型 + 自由シェア会）",
+              "📅 AI朝活：毎週水曜 8:00〜9:00 ／ 特別イベント：月2回",
             ].map((item, i) => (
               <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                 <span style={{ fontSize: 18, lineHeight: "1.6" }}>{item.slice(0, 2)}</span>
@@ -264,11 +294,20 @@ function AIIslandPage({ onBack }) {
           </div>
         </div>
 
-        <div>
-          <SectionLabel text="企画一覧" />
+        <div style={{ marginBottom: 40 }}>
+          <SectionLabel text="🌅 AI朝活（毎週開催）" />
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            {events.map((e, i) => (
+            {regularEvents.map((e, i) => (
               <EventTile key={i} {...e} color={C.ai} />
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <SectionLabel text="🔥 AI島×対話島 特別イベント" />
+          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            {specialEvents.map((e, i) => (
+              <EventTile key={i} {...e} color={C.goldLight} />
             ))}
           </div>
         </div>
@@ -301,7 +340,7 @@ function DialogueIslandPage({ onBack }) {
               "🧭 OBは「教える側」ではなく「一緒に対話する仲間」",
               "🪞 対話後に「今日の磁気（気づき）」を全員で共有",
               "🌱 表面的な会話では得られない自己発見がある",
-              "📅 月1〜2回、オフラインで開催",
+              "📅 AI島×対話島：4/11, 4/18, 5/16, 5/30（土）16:00〜19:00",
             ].map((item, i) => (
               <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                 <span style={{ fontSize: 18, lineHeight: "1.6" }}>{item.slice(0, 2)}</span>
@@ -723,17 +762,17 @@ export default function App() {
           <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
             <IslandCardTop
               emoji="🍽️" title="食事島" subtitle="FOOD ISLAND"
-              features={["🏠 ゆるく繋がる「最初の島」", "👨‍🍳 手料理＆みんなで料理会", "💰 参加費無料（食材割り勘のみ）"]}
+              features={["🏠 ゆるく繋がる「最初の島」", "📅 毎週月曜・木曜 19:00〜", "💰 参加費無料（食材割り勘のみ）"]}
               color={C.food} onClick={() => setPage("food")}
             />
             <IslandCardTop
               emoji="🤖" title="AI島" subtitle="AI ISLAND"
-              features={["🛠️ ハンズオンで実践的に学ぶ", "📱 仲間と一緒だから続く", "💼 就活×AIハックも開催"]}
+              features={["☀️ AI朝活：毎週水曜 8:00〜9:00", "🔥 AI×対話：月2回の特別イベント", "🛠️ 知る・触る・考えるの3本柱"]}
               color={C.ai} onClick={() => setPage("ai")}
             />
             <IslandCardTop
               emoji="💬" title="対話島" subtitle="DIALOGUE ISLAND"
-              features={["🔥 テーマ別で少人数の深い対話", "🧭 OBも一緒に語る側として参加", "🪞 自分の価値観を発見する場"]}
+              features={["🔥 テーマ別で少人数の深い対話", "📅 AI島×対話島：4/11, 4/18, 5/16, 5/30 16:00〜", "🧭 OBも一緒に語る側として参加"]}
               color={C.dialogue} onClick={() => setPage("dialogue")}
             />
           </div>
